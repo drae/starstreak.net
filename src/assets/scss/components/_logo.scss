@@ -1,80 +1,28 @@
-.cuos-logo-top-front-side,
-.cuos-logo-top-inside {
-    fill: #b27100;
-}
+.main-logo-container {
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
 
-.cuos-logo-top-front {
-    fill: #fa9e00;
-}
-
-.cuos-logo-top-face {
-    fill: #e99300;
-}
-
-.cuos-logo-mid-front-side,
-.cuos-logo-mid-inside {
-    fill: #a54a00;
-}
-
-.cuos-logo-mid-front {
-    fill: #e26500;
-}
-
-.cuos-logo-mid-face {
-    fill: #cd5c00;
-}
-
-.cuos-logo-btm-front-side,
-.cuos-logo-btm-inside {
-    fill: #870000;
-}
-
-.cuos-logo-btm-front {
-    fill: #c80000;
-}
-
-.cuos-logo-btm-face {
-    fill: #a50000;
-}
-
-.cuos-logo-grey {
-    .cuos-logo-top-front-side,
-    .cuos-logo-top-inside {
-        fill: #a0a0a0;
+    .main-logo {
+        max-height: 60%;
+        position: absolute;
+        max-width: 60%;
     }
 
-    .cuos-logo-top-front {
-        fill: #bcbcbc;
+    .star-centre {
+        fill: rgba(252, 252, 255, 0.8);
     }
 
-    .cuos-logo-top-face {
-        fill: #b2b2b2;
+    .star-spur-top {
+        fill: rgba(252, 252, 255, 0.8);
     }
 
-    .cuos-logo-mid-front-side,
-    .cuos-logo-mid-inside {
-        fill: #c2c2c2;
-    }
-
-    .cuos-logo-mid-front {
-        fill: #dfdfdf;
-    }
-
-    .cuos-logo-mid-face {
-        fill: #d2d2d2;
-    }
-
-    .cuos-logo-btm-front-side,
-    .cuos-logo-btm-inside {
-        fill: #e0e0e0;
-    }
-
-    .cuos-logo-btm-front {
-        fill: #fff;
-    }
-
-    .cuos-logo-btm-face {
-        fill: #f0f0f0;
+    .star-spurs {
+        fill: rgba(252, 252, 255, 0.8);
     }
 }
 

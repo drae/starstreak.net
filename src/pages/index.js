@@ -1,12 +1,12 @@
 import React from 'react'
 
 import Layout from '../components/layout'
-import Star from '../assets/images/starstreak-hilight.svg'
+import Star from '../assets/images/starstreak.svg'
 
 const IndexPage = () => (
   <Layout>
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100vh', position: 'relative', overflow: 'hidden' }}>
-      <Star style={{ maxHeight: '85%',maxWidth: '85%', position: 'absolute' }} />
+    <div className="main-logo-container">
+      <Star className="main-logo" />
     </div>
   </Layout>
 )
