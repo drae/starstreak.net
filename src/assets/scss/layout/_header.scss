@@ -1,0 +1,131 @@
+///
+/// Stellar by HTML5 UP
+/// html5up.net | @ajlkn
+/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+///
+
+.landing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+    text-align: center;
+    top: 0;
+    width: 100%;
+
+    .landing-inner {
+        background-image: url('../images/cuos-topo-map.jpg');
+        background-size: cover;
+        background-position: 100% 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        position: fixed;
+        text-align: center;
+        top: 0;
+        width: 100%;
+
+        &::before {
+            background-color: _palette(bg);
+            content: '';
+            display: block;
+            right: 0;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            width: 50%;
+        }
+    }
+
+    .logo-container {
+        position: relative;
+        width: 35%;
+
+        h6 {
+            @include stroke-text(rgba(255, 255, 255, 0.75));
+        }
+
+        .logo-text svg,
+        .logo-text-extended svg,
+        h6 {
+            opacity: 1;
+            transition: opacity 1.5s ease, transform 1.5s ease;
+        }
+
+        .logo-text svg,
+        .logo-text-extended svg,
+        h6 {
+            transition-delay: 1.5s;
+        }
+
+        svg {
+            display: block;
+            margin: 0 0 (_size(element-margin) * 0.75) 0;
+            overflow: visible;
+            width: 100%;
+        }
+
+        .logo {
+            display: block;
+
+            svg {
+                > g {
+                    transition: opacity 750ms ease, transform 750ms ease;
+                }
+
+                // Fade and translate each layer of the logo
+                @for $i from 1 through 3 {
+                    > g:nth-child(#{$i}) {
+                        transition-delay: #{($i - 1) * 500}ms;
+                    }
+                }
+            }
+        }
+    }
+
+    h3 {
+        margin: 0 0 (_size(element-margin) * 0.125) 0;
+    }
+
+    @include media-breakpoint-up(large) {
+    }
+
+    @include media-breakpoint-up(medium) {
+    }
+
+    @include media-breakpoint-up(small) {
+        p {
+            letter-spacing: 0;
+
+            br {
+                display: none;
+            }
+        }
+    }
+
+    @include media-breakpoint-up(xsmall) {
+    }
+
+    .body.is-loading & {
+        .logo-container {
+            .logo-text svg,
+            .logo-text-extended svg {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            h6 {
+                opacity: 0;
+            }
+
+            .logo {
+                g {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+            }
+        }
+    }
+}

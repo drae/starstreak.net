@@ -1,0 +1,100 @@
+// Misc.
+$misc: (
+    z-index-base: 10000,
+);
+
+// Duration.
+$duration: (
+    transition: 0.2s,
+);
+
+// Size.
+$size: (
+    element-height: 2.5rem,
+    element-margin: 2rem,
+);
+
+// Font.
+$font: (
+    family: (
+        'Lato',
+        Helvetica,
+        sans-serif,
+    ),
+    family-fixed: (
+        'Courier New',
+        monospace,
+    ),
+    weight: 300,
+    weight-bold: 600,
+    letter-spacing: -0.025em,
+);
+// Palette.
+$palette: (
+    bg: #fafafa,
+    fg: #222,
+    fg-bold: #222,
+    fg-light: rgba(255, 255, 255, 0.5),
+    border: rgba(34, 34, 34, 0.35),
+    border-bg: rgba(34, 34, 34, 0.075),
+    border2: rgba(34, 34, 34, 0.75),
+    border2-bg: rgba(34, 34, 34, 0.2),
+    invert: (
+        bg: #555,
+        bg-alt: #777,
+        fg: #fafafa,
+        fg-bold: #fefefe,
+        fg-light: rgba(#fefefe, 0.25),
+        fg-dark: rgba(0, 0, 0, 0.75),
+        border: #333,
+        border-bg: rgba(#333, 0.25),
+        border2: #444,
+        border2-bg: rgba(#444, 0.5),
+    ),
+    coloured: (
+        bg: rgb(205, 92, 0),
+        fg: #fafafa,
+        fg-bold: #fefefe,
+        fg-light: rgba(#fefefe, 0.25),
+        fg-dark: rgba(0, 0, 0, 0.5),
+        border: #333,
+        border-bg: rgba(#000, 0.25),
+    ),
+    dragonshale: (
+        bg: #9b3112,
+        fg: #fafafa,
+        fg-bold: #fefefe,
+        fg-light: rgba(#fefefe, 0.25),
+        fg-dark: rgba(0, 0, 0, 0.25),
+        border: #333,
+        border-bg: rgba(#000, 0.25),
+    ),
+    footer: (
+        bg: #333,
+        bg-alt: #555,
+        fg: #fafafa,
+        fg-bold: #fefefe,
+        fg-light: rgba(#fefefe, 0.25),
+        border: #444,
+        border-bg: rgba(#444, 0.25),
+        border2: #555,
+        border2-bg: rgba(#555, 0.5),
+    ),
+    accent: #a50000,
+    accent1: #cd5c00,
+    accent2: #e99300,
+    accent3: #fff,
+    accent4: #fff,
+    accent5: #fff,
+    bg1: #e37682,
+    bg2: #5f4d93,
+);
+
+$grid-breakpoints: (
+    xxsmall: 0,
+    xsmall: 480px,
+    small: 736px,
+    medium: 980px,
+    large: 1280px,
+    xlarge: 1680px,
+);

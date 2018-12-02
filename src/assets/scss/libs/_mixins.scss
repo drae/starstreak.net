@@ -1,0 +1,166 @@
+/*@mixin color($p) {
+    @include color-typography($p);
+    @include color-box($p);
+    @include color-button($p);
+    @include color-form($p);
+    @include color-icon($p);
+    @include color-list($p);
+    @include color-section($p);
+    @include color-table($p);
+    @include color-spotlight($p);
+}*/
+
+@mixin stroke-text($color: rgba(0, 0, 0, 0.75)) {
+    text-shadow: -1px -1px 0 $color, 1px -1px 0 $color, -1px 1px 0 $color,
+        1px 1px 0 $color;
+}
+
+/// Makes an element's :before pseudoelement a LineAwesome icon.
+/// @param {string} $content Optional content value to use.
+/// @param {string} $where Optional pseudoelement to target (before or after).
+@mixin icon($content: false, $where: before) {
+    text-decoration: none;
+
+    &:#{$where} {
+        @if $content {
+            content: $content;
+        }
+
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-family: LineAwesome;
+        font-style: normal;
+        font-weight: normal;
+        text-transform: none !important;
+    }
+}
+
+/// Applies padding to an element, taking the current element-margin value into account.
+/// @param {mixed} $tb Top/bottom padding.
+/// @param {mixed} $lr Left/right padding.
+/// @param {list} $pad Optional extra padding (in the following order top, right, bottom, left)
+/// @param {bool} $important If true, adds !important.
+@mixin padding($tb, $lr, $pad: (0, 0, 0, 0), $important: null) {
+    @if $important {
+        $important: '!important';
+    }
+
+    $x: 0.1em;
+
+    @if unit(_size(element-margin)) == 'rem' {
+        $x: 0.1rem;
+    }
+
+    padding: ($tb + nth($pad, 1)) ($lr + nth($pad, 2))
+        ($tb + nth($pad, 3)) ($lr + nth($pad, 4))
+        #{$important};
+}
+
+/// Encodes a SVG data URL so IE doesn't choke (via codepen.io/jakob-e/pen/YXXBrp).
+/// @param {string} $svg SVG data URL.
+/// @return {string} Encoded SVG data URL.
+@function svg-url($svg) {
+    $svg: str-replace($svg, '"', "'");
+    $svg: str-replace($svg, '%', '%25');
+    $svg: str-replace($svg, '<', '%3C');
+    $svg: str-replace($svg, '>', '%3E');
+    $svg: str-replace($svg, '&', '%26');
+    $svg: str-replace($svg, '#', '%23');
+    $svg: str-replace($svg, '{', '%7B');
+    $svg: str-replace($svg, '}', '%7D');
+    $svg: str-replace($svg, ';', '%3B');
+
+    @return url('data:image/svg+xml;charset=utf8,#{$svg}');
+}
+
+/// Sets the global box model.
+/// @param {string} $model Model (default is content).
+@mixin boxModel($model: 'content') {
+    $x: $model + '-box';
+
+    *,
+    *:before,
+    *:after {
+        box-sizing: #{$x};
+    }
+}
+
+// --------------------------------------------------
+// reflex mixins
+// --------------------------------------------------
+//
+// --------------------------------------------------
+// reflex grid generation mixins
+// --------------------------------------------------
+
+@mixin make-reflex-grid($class) {
+    @include loop-reflex-columns(_grid(columns), $class, width);
+}
+
+@mixin calc-reflex-columns($index, $class, $type) {
+    @if $type == width and $index > 0 {
+        .#{$class}#{$index} {
+            width: percentage(($index / _grid(columns)));
+            @if _grid(legacy-support) == true {
+                *width: percentage(($index / _grid(columns))) -
+                    0.1; // ie7 css hack
+            }
+        }
+    }
+}
+
+@mixin loop-reflex-columns($index, $class, $type) {
+    @if $index >= 0 {
+        @include calc-reflex-columns($index, $class, $type);
+        // next iteration
+        @include loop-reflex-columns(($index - 1), $class, $type);
+    }
+}
+
+// defaults for auto cols
+@mixin setup-auto-cols() {
+    flex: 1 0 0px;
+
+    @if _grid(legacy-support) == true {
+        width: auto;
+    }
+}
+
+// --------------------------------------------------
+// inline-block specific mixins
+// --------------------------------------------------
+
+@mixin setup-whitespace() {
+    @if _grid(legacy-support) == true {
+        letter-spacing: -0.31em;
+        *letter-spacing: normal;
+        word-spacing: -0.43em;
+    }
+}
+
+@mixin reset-whitespace() {
+    @if _grid(legacy-support) == true {
+        letter-spacing: normal;
+        word-spacing: normal;
+        white-space: normal;
+    }
+}
+
+@mixin reset-text-align() {
+    //
+    // We want to reset any text-align properties set by the grid
+    // (required for the inline-block fallback)
+    // but we don't want to override any text-align properties
+    // set on the individual col-x element
+    // or on any of it's child elements
+    //
+    // 1) set to left by default (works everywhere)
+    // 2) set to start (respects right to left text)
+    //
+    text-align: left;
+    text-align: start;
+    -moz-text-align-last: left;
+    -moz-text-align-last: start;
+    text-align-last: left;
+    text-align-last: start;
+}

@@ -1,0 +1,201 @@
+///
+/// Stellar by HTML5 UP
+/// html5up.net | @ajlkn
+/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+///
+
+/* Section/Article */
+section,
+footer {
+    padding-bottom: 8rem;
+    padding-top: 8rem;
+    position: relative;
+    width: 100%;
+
+    .section-inner {
+        margin: 0 auto;
+        @include padding(0, 1rem);
+
+        @include media-breakpoint-up(medium) {
+            @include padding(0, 12rem);
+            max-width: map-get($grid-breakpoints, medium);
+        }
+
+        @include media-breakpoint-up(large) {
+            @include padding(0, 16rem);
+            max-width: map-get($grid-breakpoints, large);
+        }
+
+        &.full-width {
+            max-width: 100%;
+            padding: 0;
+        }
+
+        .section-row {
+            display: flex;
+            flex: 1 0 auto;
+            flex-flow: row nowrap;
+            margin: 0 -2rem _size(element-margin) -2rem;
+            width: 100%;
+
+            h1 {
+                margin: 0;
+            }
+        }
+    }
+}
+
+.content {
+    margin: 0 auto;
+
+    .section-title-wrapper {
+        .section-title {
+            color: #cd5c00;
+            letter-spacing: 0.15rem;
+        }
+    }
+
+    &.section-invert {
+        background-color: _palette(invert, bg);
+        @include color-typography(invert);
+        text-shadow: 0 0 1px _palette(invert, fg-dark);
+
+        .section-title {
+            color: _palette(invert, fg);
+        }
+    }
+
+    &.history {
+        background-color: _palette(coloured, bg);
+        @include color-typography(coloured);
+        text-shadow: 0 0 1px _palette(coloured, fg-dark);
+
+        .section-title {
+            color: _palette(coloured, fg);
+        }
+    }
+
+    &.partnership {
+        background-color: _palette(dragonshale, bg);
+        @include color-typography(dragonshale);
+        text-shadow: 0 0 1px _palette(dragonshale, fg-dark);
+
+        .section-title {
+            color: _palette(dragonshale, fg);
+        }
+    }
+
+    @include media-breakpoint-up(medium) {
+        .section-title-wrapper {
+            transform: rotate(-90deg);
+            transform-origin: left top;
+            position: absolute;
+            top: 9rem;
+            left: 45px;
+
+            .section-title {
+                font-size: 16px;
+                line-height: 1;
+                margin: 0;
+                transform: translateX(-100%);
+                text-transform: uppercase;
+                font-weight: 600;
+            }
+        }
+    }
+
+    header {
+        &.bordered {
+            margin-bottom: (_size(element-margin) * 1.5);
+
+            h2 {
+                &:after {
+                    display: block;
+                    content: '';
+                    width: 3.25em;
+                    height: 2px;
+                    margin: (_size(element-margin) * 0.35) 0
+                        (_size(element-margin) * 0.5) 0;
+
+                    section.special &,
+                    article.special & {
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                }
+            }
+        }
+
+        &.centered {
+            text-align: center;
+
+            h2 {
+                &:after {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        }
+    }
+
+    .content {
+        > :last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.block {
+    margin: 0 2rem;
+    width: 100%;
+
+    &:last-child {
+        padding-right: 0;
+    }
+
+    &.full-width {
+        margin-left: -1rem;
+        margin-right: -1rem;
+    }
+
+    @include media-breakpoint-up(medium) {
+        &.full-width {
+            margin-left: -12rem;
+            margin-right: -12rem;
+        }
+    }
+
+    @include media-breakpoint-up(large) {
+        &.full-width {
+            margin-left: -16rem;
+            margin-right: -16rem;
+        }
+    }
+
+    &.onequarter {
+        width: 25%;
+    }
+
+    &.onethird {
+        width: 33.333%;
+    }
+
+    &.onehalf {
+        width: 50%;
+    }
+
+    &.twothirds {
+        width: 66.667%;
+    }
+
+    &.threequarters {
+        width: 75%; 
+    }
+
+    &.right {
+        margin-left: auto;
+        justify-self: right;
+    }
+}
+
+@include color-section;
