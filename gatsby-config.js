@@ -18,6 +18,7 @@ module.exports = {
     },
     'gatsby-plugin-sass',
     'gatsby-plugin-react-svg',
+//    'gatsby-plugin-svg',
     'gatsby-plugin-netlify'
   ],
 }
