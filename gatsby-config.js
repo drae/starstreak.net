@@ -1,13 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: 'starstreak.xyz | My home',
+    title: 'starstreak.net | Home is where the star is (tm)',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'starstreak.xyz',
+        name: 'starstreak.net',
         short_name: 'starstreak',
         start_url: '/',
         background_color: '#663399',

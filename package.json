@@ -1,5 +1,5 @@
 {
-  "name": "starstreak.xyz",
+  "name": "starstreak.net",
   "description": "starstreak website",
   "version": "1.0.0",
   "author": "Paul Owen <paul@starstreak.net>",
@@ -41,6 +41,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/numeric73/starstreak.xyz"
+    "url": "https://github.com/Drae/starstreak.net"
   }
 }
